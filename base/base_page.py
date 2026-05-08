@@ -1,6 +1,5 @@
 import allure
 from allure_commons.types import AttachmentType
-
 class BasePage:
     def __init__(self, page):
         self.page = page
@@ -11,10 +10,10 @@ class BasePage:
 
     def is_opened(self):
         with allure.step(f"Page {self.PAGE_URL} is opened"):
+            print(type(self.page))
             self.page.wait_for_url(self.PAGE_URL)
 
     def make_screenshot(self, screenshot_name):
-        self.wait_invisibility_of_spinner()
 
         allure.attach(
             body=self.page.screenshot(),

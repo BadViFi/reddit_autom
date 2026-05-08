@@ -1,7 +1,15 @@
-import time
 import allure
-def test_nav_items(setup):
-    page = setup
-    
-    page.get_by_role("link", name="Popular").click()
-    time.sleep(2)
+import pytest
+from base.base_test import BaseTest
+
+@allure.feature("Navbar Functionality")
+class TestProfileFeature(BaseTest):
+    @allure.title("Click navbar")
+    @pytest.mark.smoke
+
+    def test_click_nav_items(self):
+        self.home_page.is_opened()
+        self.home_page.open_popular()
+        self.home_page.open_news()
+        
+        self.home_page.make_screenshot("Success")
