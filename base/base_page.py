@@ -1,6 +1,7 @@
 import allure
 from allure_commons.types import AttachmentType
 class BasePage:
+    BASE_URL = "https://www.reddit.com/"
     def __init__(self, page):
         self.page = page
 
